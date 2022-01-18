@@ -1,0 +1,35 @@
+@testid1 = "b9bd26f5-5de1-453b-a74b-55403009fb8a"
+@testid2 = "e8873288-a91b-4c7d-976c-69ee9d9e2354"
+@testid3 = "a6c00784-6d52-48ef-93f9-0e8acff14498"
+
+###
+POST http://localhost:3000/api/createuser
+
+###
+
+POST http://localhost:3000/api/twofactor/add
+Content-Type: application/json
+
+{
+  "id": {{testid3}}
+}
+
+###
+
+POST http://localhost:3000/api/twofactor/verifyadd
+Content-Type: application/json
+
+{
+  "id": {{testid3}},
+  "token": "078601"
+}
+
+###
+
+POST http://localhost:3000/api/twofactor/verify
+Content-Type: application/json
+
+{
+  "id": {{testid3}},
+  "token": "288521"
+}
